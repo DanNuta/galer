@@ -36,21 +36,21 @@ export const categoryImg = [
 
 export const cateboryBtn = [
     {
-        catebory: 'all'
+        category: 'all'
     },
     {
-        catebory: 'nature'
+        category: 'nature'
     },
     {
-        catebory: 'portraits'
+        category: 'portraits'
     },
     {
-        catebory: 'couples'
+        category: 'couples'
     },
     {
-        catebory: 'unique'
+        category: 'unique'
     },
     {
-        catebory: 'video'
+        category: 'video'
     },
 ]
