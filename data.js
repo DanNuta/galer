@@ -21,6 +21,15 @@ export const categoryImg = [
         category: "unique",
         img: "./img/unique.png"
     },
+    {
+        category: "nature",
+        img: "./img/nature.png"
+    },
+
+    {
+        category: "portraits",
+        img: "./img/portaits.png"
+    },
 
 ];
 
