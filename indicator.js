@@ -28,12 +28,9 @@ export function leftBtn(){
     const categoryImg = document.querySelectorAll("[data-filter]");
     const lengthFilter = categoryImg.length;
 
+    if(getStyle(categoryImg[0], "--left") === 0) return
     
     categoryImg.forEach((item) => {
-
-        if(categoryImg[0].previousElementSibling === null) return
-
-        console.log("eleme")
         item.style.setProperty("--left", getStyle(item, "--left") +  widthScreen)
         
 
