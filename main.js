@@ -100,16 +100,25 @@ function getStyle(element, prop){
 
 function expandElementFilter(e){
     const target = e.target.parentElement;
-    const datasetTarget = target.dataset.filter;
+    const datasetId = target.dataset.filter;
+    let datasetTarget = target.dataset.filter;
     const widthScreen = Math.floor(categoryImgGalery.getBoundingClientRect().width);
     const childrenFilterImg = categoryImgGalery.childNodes;
 
-    // target.style.setProperty("--left", 0);
-    // target.style.setProperty("--width", widthScreen);
-
     childrenFilterImg.forEach((item, i) => {
         item.style.setProperty("--width", widthScreen); 
-        item.style.setProperty("--left", i != datasetTarget ? ( i < datasetTarget ? (getStyle(item, "--width") + widthScreen * i) * -1 : (getStyle(item, "--width") + widthScreen * i) ) : 0); // 2 !== 2 => true
+        console.log(datasetTarget)
+        item.style.setProperty("--left",  i < datasetId ? (datasetTarget--) * widthScreen * -1 : (datasetTarget++) * widthScreen ); // 2 !== 2 => true
     })
 }
 
+
+// 0 < 3 true 2
+// 1 < 2 true 1
+// 2 < 3 false 0
+// 0 < 1 true 0
+// 1 < 0 false 1
+// 2 < 1 false 2
+// 3 < 2 false 3
+// 4 < 3 false 4
+// 5 < 4 false 5
