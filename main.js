@@ -92,7 +92,7 @@ btnLeft.addEventListener("click", leftBtn)
 
 
 
-function getStyle(element, prop){
+export function getStyle(element, prop){
     return parseFloat(getComputedStyle(element).getPropertyValue(prop)) || 0
 }
 
@@ -107,18 +107,7 @@ function expandElementFilter(e){
 
     childrenFilterImg.forEach((item, i) => {
         item.style.setProperty("--width", widthScreen); 
-        console.log(datasetTarget)
-        item.style.setProperty("--left",  i < datasetId ? (datasetTarget--) * widthScreen * -1 : (datasetTarget++) * widthScreen ); // 2 !== 2 => true
+        item.style.setProperty("--left",  i < datasetId ? (datasetTarget--) * widthScreen * -1 : (datasetTarget++) * widthScreen );
     })
 }
 
-
-// 0 < 3 true 2
-// 1 < 2 true 1
-// 2 < 3 false 0
-// 0 < 1 true 0
-// 1 < 0 false 1
-// 2 < 1 false 2
-// 3 < 2 false 3
-// 4 < 3 false 4
-// 5 < 4 false 5
