@@ -16,9 +16,14 @@ export function rightBtn(){
     
             categoryImg.forEach((item) => {
                 const activeElement = item.classList.contains("active") && item;
+                const nextElement = activeElement.nextElementSibling;
+                const prevElement = activeElement.previousElementSibling;
                 
-                console.log(activeElement.previousElementSibling)
-                                                    
+                if(prevElement){
+                    prevElement.querySelector("video").pause();
+                    activeElement.querySelector("video").play()
+                }
+
                 item.style.setProperty("--left", getStyle(item, "--left") +  styleProperty * -1)
 
             })
@@ -54,7 +59,17 @@ export function leftBtn(){
 
     active.classList.remove("active");
     active.previousElementSibling.classList.add("active")
+
     categoryImg.forEach((item) => {
+        const activeElement = item.classList.contains("active") && item;
+        const nextElement = activeElement.nextElementSibling;
+       
+                
+        if(nextElement){
+                nextElement.querySelector("video").pause();
+                activeElement.querySelector("video").play()
+            }
+
         item.style.setProperty("--left", getStyle(item, "--left") +  styleProperty)
     })
 }

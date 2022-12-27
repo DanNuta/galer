@@ -24,6 +24,9 @@ createImg(filterImagesArr);
 
 
 function categoryButton(arr){
+
+   
+
     arr.forEach(element => {
         const btn = document.createElement("button");
         btn.textContent = element.category;
@@ -86,6 +89,7 @@ function createItemImg(element, value, item, lengthArr, arr){
 
 
 function filterImages(e){
+    closeFullSceen()
     const value = e.target.dataset.category;
 
     filterImagesArr = categoryImg.filter(item => {
@@ -117,7 +121,7 @@ export function getStyle(element, prop){
 }
 
 function expandElementFilter(e, element, arr){
-
+    
     if(element.type === "img"){
         const active = document.querySelector(".active");
         close.classList.remove("ascunde")
@@ -142,9 +146,31 @@ function expandElementFilter(e, element, arr){
 
 
 function closeFullSceen(){
+    const length = filterImagesArr.length;
+    const imgDiv = document.createElement("div");
     const active = document.querySelector(".active");
     const widthScreen = Math.floor(categoryImgGalery.getBoundingClientRect().width) / 5;
     const childrenFilterImg = categoryImgGalery.childNodes;
+
+    if(filterImagesArr[0].type === "video"){
+        console.log(widthScreen)
+
+        filterImagesArr.forEach((element, item) => {
+            const value = item * widthScreen;
+
+            video({data: element,
+                widthScreen, 
+                value, 
+                item, 
+                length, 
+                imgDiv, 
+                expandElementFilter,
+                categoryImgGalery,
+                arr: filterImagesArr
+             })
+        })
+    }
+   
     
     close.classList.add("ascunde")
     active.classList.remove("active")

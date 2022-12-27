@@ -16,6 +16,10 @@ export function video(data){
 
 
 export function playVideo(e, element, arr){
+    const close = document.querySelector("[data-close]");
+    close.classList.remove("ascunde")
+    if(e.target.nodeName !== "IMG") return
+
    const categoryContainer = document.querySelector("[data-category-container]");
    const dataFilter = document.querySelectorAll("[data-filter]");
    let widthScreen = Math.floor(categoryContainer.getBoundingClientRect().width);
@@ -28,6 +32,7 @@ export function playVideo(e, element, arr){
        item.classList.remove("active")
        item.querySelector("img") &&  item.querySelector("img").remove();
        const video = document.createElement("video");
+       video.controls = true;
        video.src = arr[i].video;
        video.classList.add("video")
        item.appendChild(video)
@@ -35,7 +40,6 @@ export function playVideo(e, element, arr){
        item.style.setProperty("--left",  i < datasetId ? (datasetTarget--) * widthScreen * -1 : (datasetTarget++) * widthScreen );
        const videoElement = target.querySelector("video");
        target.classList.add("active")
-       videoElement.controls = true;
        videoElement.play()
 
    })
