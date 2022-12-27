@@ -5,16 +5,39 @@ export function rightBtn(){
    
     const categoryImg = document.querySelectorAll("[data-filter]");
     const styleProperty = getStyle(categoryImg[0], "--width");
+    const active = document.querySelector(".active");
 
 
+    if(categoryImg.length <= 5){
+        if(active.nextElementSibling){
+            active.classList.remove("active")
+            active.nextElementSibling.classList.add("active")
+    
+            categoryImg.forEach((item) => {
+                if(item.querySelector("video")){
+                    const video = item.querySelector("video");
+                    const prevItem = item.previousElementSibling;
+                  // const prevVideo = prevItem.querySelector("video");
+                   //prevVideo.muted = true;
+                   console.log(prevItem)
+                }
+                item.style.setProperty("--left", getStyle(item, "--left") +  styleProperty * -1)
+            })
 
-    console.log(styleProperty)
+            return
+        }
+    }
 
-    if(getStyle(categoryImg[categoryImg.length-1], "--left") === styleProperty * 4) return
+    
+    if(active.nextElementSibling){
+        active.classList.remove("active")
+        active.nextElementSibling.classList.add("active")
 
-    categoryImg.forEach((item) => {
-        item.style.setProperty(--"--left", getStyle(item, "--left") +  styleProperty * -1)
-    })
+        categoryImg.forEach((item) => {
+            item.style.setProperty("--left", getStyle(item, "--left") +  styleProperty * -1)
+        })
+    }
+
 }
 
 
@@ -24,14 +47,15 @@ export function rightBtn(){
 
 
 export function leftBtn(){
+    const active = document.querySelector(".active");
     const categoryImg = document.querySelectorAll("[data-filter]");
     const styleProperty = getStyle(categoryImg[0], "--width");
 
     if(getStyle(categoryImg[0], "--left") === 0) return
-    
+
+    active.classList.remove("active");
+    active.previousElementSibling.classList.add("active")
     categoryImg.forEach((item) => {
         item.style.setProperty("--left", getStyle(item, "--left") +  styleProperty)
-        
-
     })
 }
