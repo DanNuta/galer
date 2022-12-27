@@ -69,6 +69,7 @@ function createItemImg(element, value, item, lengthArr, arr){
         categoryImgGalery.append(imgDiv)
     }
     else if(element.type === "video"){ 
+
         video({data: element,
                widthScreen, 
                value, 

@@ -51,7 +51,13 @@ export const categoryImg = [
         type: "video",
         img: "./img/unique.png",
         category: "video",
-        video: "./img/video/video2.mp4"
+        video: "./img/video/video3.mp4"
+    },
+    {
+        type: "video",
+        img: "./img/nature.png",
+        category: "video",
+        video: "./img/video/video1.mp4"
     },
     {
         type: "video",

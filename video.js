@@ -16,8 +16,8 @@ export function video(data){
 
 
 export function playVideo(e, element, arr){
-   const dataFilter = document.querySelectorAll("[data-filter]");
    const categoryContainer = document.querySelector("[data-category-container]");
+   const dataFilter = document.querySelectorAll("[data-filter]");
    let widthScreen = Math.floor(categoryContainer.getBoundingClientRect().width);
    const target = e.target.parentElement;
    const datasetId = target.dataset.filter;

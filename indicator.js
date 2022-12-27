@@ -11,17 +11,16 @@ export function rightBtn(){
     if(categoryImg.length <= 5){
         if(active.nextElementSibling){
             active.classList.remove("active")
-            active.nextElementSibling.classList.add("active")
+            active.nextElementSibling.classList.add("active");
+           
     
             categoryImg.forEach((item) => {
-                if(item.querySelector("video")){
-                    const video = item.querySelector("video");
-                    const prevItem = item.previousElementSibling;
-                  // const prevVideo = prevItem.querySelector("video");
-                   //prevVideo.muted = true;
-                   console.log(prevItem)
-                }
+                const activeElement = item.classList.contains("active") && item;
+                
+                console.log(activeElement.previousElementSibling)
+                                                    
                 item.style.setProperty("--left", getStyle(item, "--left") +  styleProperty * -1)
+
             })
 
             return
